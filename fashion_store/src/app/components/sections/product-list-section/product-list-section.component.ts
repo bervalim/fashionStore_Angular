@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { IProduct } from '../../../interfaces/product.interface';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-product-list-section',
@@ -11,13 +12,14 @@ import { RouterLink } from '@angular/router';
   styleUrl: './product-list-section.component.scss',
 })
 export class ProductListSectionComponent {
-  // Iremos criar duas possíveis entradas de dados
-  // Uma terá todos os produtos
-  // Outro terá todos menos o refernciando na URL.
-  // Será uma entrada para uma lista de produtos
+  constructor(private cartService: CartService) {}
+
   @Input() productList!: IProduct[];
-  // O componente title irá se portar de forma variável
   @Input() title!: string;
+
+  handleAddProduct(product: IProduct) {
+    return this.cartService.addProductToCart(product);
+  }
 
   redirectURL(productId: number) {
     return `/product/${productId}`;

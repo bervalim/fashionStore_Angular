@@ -1,0 +1,7 @@
+<div *ngIf="isCartOpen">
+  <div role="dialog">
+    <button (click)="handleCloseModal()">Fechar</button>
+    <h2>Carrinho</h2>
+    <app-cart-product-list></app-cart-product-list>
+  </div>
+</div>

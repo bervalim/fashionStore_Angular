@@ -41,9 +41,7 @@ export class CartService {
 
   removeProductFromCart(productId: number) {
     this.cartProductListSignal.update((cartProductList) =>
-      cartProductList.filter((product) => {
-        product.id !== productId;
-      })
+      cartProductList.filter((product) => product.id !== productId)
     );
   }
 }

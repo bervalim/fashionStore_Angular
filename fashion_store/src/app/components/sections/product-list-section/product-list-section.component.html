@@ -12,7 +12,7 @@
         })
       }}</span>
       <div>
-        <button>Carrinho</button>
+        <button (click)="handleAddProduct(product)">Carrinho</button>
         <a [routerLink]="redirectURL(product.id)">Saiba mais</a>
       </div>
     </li>
