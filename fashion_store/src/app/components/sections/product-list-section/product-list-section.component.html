@@ -1,1 +1,20 @@
-<p>product-list-section works!</p>
+<section id="produtos">
+  <!-- Aqui,iremos receber a entrada de dados título -->
+  <h2>{{ title }}</h2>
+  <ul>
+    <li *ngFor="let product of productList">
+      <img [src]="product.img" [alt]="product.name" />
+      <h3>{{ product.name }}</h3>
+      <span>{{
+        product.price.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL"
+        })
+      }}</span>
+      <div>
+        <button>Carrinho</button>
+        <a [routerLink]="redirectURL(product.id)">Saiba mais</a>
+      </div>
+    </li>
+  </ul>
+</section>
